@@ -1,4 +1,4 @@
-const core = require('@actions/core');
+import core from '@actions/core'
 const fs = require('fs');
 
 // Replace with your Crowdin API token and project ID
