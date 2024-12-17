@@ -1,12 +1,11 @@
-const { execSync } = require('child_process');
-execSync('npm install @actions/core', { stdio: 'inherit' });
 const core = require('@actions/core');
+const github = require('@actions/github');
 const fs = require('fs');
 const path = require('path');
 
 // Replace with your Crowdin API token and project ID
-const CROWDIN_API_TOKEN = core.getInput('token');
-const PROJECT_ID = core.getInput('project_id');
+const CROWDIN_API_TOKEN = core.getInput('token', { required: true });
+const PROJECT_ID = core.getInput('project_id', { required: true });
 
 // Base API URL for Crowdin
 const CROWDIN_API_URL = `https://api.crowdin.com/api/v2/projects/${PROJECT_ID}/languages/progress`;

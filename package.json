@@ -1,6 +1,6 @@
 {
   "name": "badge-creator",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "This action allows you to make a badge that shows the translation progress of your Crowdin project",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "node-fetch": "^3.3.1"
+    "@actions/github": "^6.0.0"
   }
 }
