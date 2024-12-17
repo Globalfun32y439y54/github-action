@@ -1,9 +1,6 @@
-const core = require('@actions/core');
-const fs = require('fs');
-
 // Replace with your Crowdin API token and project ID
-const CROWDIN_API_TOKEN = core.getInput('token');
-const PROJECT_ID = core.getInput('project_id');
+const CROWDIN_API_TOKEN = process.env.INPUT_TOKEN;
+const PROJECT_ID = process.env.INPUT_PROJECT_ID;
 
 // Base API URL for Crowdin
 const CROWDIN_API_URL = `https://api.crowdin.com/api/v2/projects/${PROJECT_ID}/languages/progress`;
