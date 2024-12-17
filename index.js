@@ -2,14 +2,14 @@ const fs = require('fs');
 const path = require('path');
 
 // Replace with your Crowdin API token and project ID
-const CROWDIN_API_TOKEN = process.env.INPUT_TOKEN;
-const PROJECT_ID = process.env.INPUT_PROJECT_ID;
+const CROWDIN_API_TOKEN = process.env.TOKEN;
+const PROJECT_ID = process.env.PROJECT_ID;
 
 // Base API URL for Crowdin
 const CROWDIN_API_URL = `https://api.crowdin.com/api/v2/projects/${PROJECT_ID}/languages/progress`;
 
 // Get the output directory from an environment variable or use the default
-const OUTPUT_DIR = process.env.OUTPUT_DIR || './output';
+const OUTPUT_DIR = process.env.PATH || './';
 
 // Parse the languageRenameMap from the environment variable or use a default
 let languageRenameMap = {};
