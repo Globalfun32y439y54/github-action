@@ -5,6 +5,20 @@ const PROJECT_ID = process.env.INPUT_PROJECT_ID;
 // Base API URL for Crowdin
 const CROWDIN_API_URL = `https://api.crowdin.com/api/v2/projects/${PROJECT_ID}/languages/progress`;
 
+// Define a mapping of language names to rename
+const languageRenameMap = {
+    "German": "German",
+    "Spanish": "Spanish",
+    "French": "French",
+    "Italian": "Italian",
+    "Japanese": "Japanese",
+    "Portuguese": "Portuguese",
+    "Russian": "Russian",
+    "Swedish": "Swedish",
+    "Chinese Simplified": "Chinese (Simplified, China)",
+    "Chinese Traditional": "Chinese (Simplified, Taiwan)",
+};
+
 // Function to fetch approved progress from Crowdin
 async function fetchApprovedLanguageProgress() {
     try {
@@ -28,12 +42,12 @@ async function fetchApprovedLanguageProgress() {
         const approvedLanguages = data.data.map((entry) => {
             const lang = entry.data;
 
-            // Placeholder for renaming logic if needed
-            const renamedName = lang.language.name;
+            // Check if the language name exists in the rename map
+            const renamedName = languageRenameMap[lang.language.name] || lang.language.name;
 
             return {
                 name: renamedName,
-                progress: lang.approvalProgress,
+                progress: lang.approvalProgress, // Use 'approvalProgress' as 'progress'
                 url: `https://crowdin.com/project/${PROJECT_ID}/56/${lang.language.id}`,
             };
         });
@@ -60,12 +74,13 @@ function generateSVG(data) {
 <g id="layer1">
 `;
 
-    let yPosition = 20;
+    let yPosition = 20; // Starting Y-coordinate
 
     data.languages.forEach(lang => {
         const { name, progress, url } = lang;
 
-        const barWidth = (progress / 100) * 150;
+        // Determine bar width and color
+        const barWidth = (progress / 100) * 150; // Scale to 150px
         const barColor = progress >= 90 ? '#2eccaa' : progress >= 50 ? '#38f' : '#f6664c';
 
         svgContent += `
@@ -76,7 +91,7 @@ function generateSVG(data) {
 </a>
 `;
 
-        yPosition += 15;
+        yPosition += 15; // Increment position for the next language
     });
 
     svgContent += `
@@ -85,12 +100,17 @@ function generateSVG(data) {
     return svgContent;
 }
 
+// Main function to fetch data, save JSON, and generate SVG
 async function main() {
     try {
+        // Step 1: Fetch approved progress data from Crowdin
         const progressData = await fetchApprovedLanguageProgress();
+
+        // Step 2: Save to output.json
         fs.writeFileSync('output.json', JSON.stringify(progressData, null, 2), 'utf-8');
         console.log('Approved language progress saved to output.json');
 
+        // Step 3: Generate and save SVG
         const svgOutput = generateSVG(progressData);
         fs.writeFileSync('language_progress.svg', svgOutput, 'utf-8');
         console.log('SVG file successfully generated: language_progress.svg');
@@ -99,4 +119,5 @@ async function main() {
     }
 }
 
+// Execute the script
 main();
