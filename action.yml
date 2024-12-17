@@ -17,7 +17,7 @@ inputs:
     description: 'The Path You Want To Save The .svg File To'
     required: false
   language_rename_map:
-    description: 'JSON string to rename languages (e.g., '{"German": "Deutsch"}')'
+    description: 'JSON string to rename languages (e.g., {"German": "Deutsch"})'
     required: false
     default: '{}'
   output_path:
