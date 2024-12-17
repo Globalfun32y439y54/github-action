@@ -114,7 +114,7 @@ async function main() {
 
         // Step 3: Generate and save SVG
         const svgOutput = generateSVG(progressData);
-        fs.writeFileSync('language_progress.svg', svgOutput, 'utf-8');
+        fs.writeFileSync('badge.svg', svgOutput, 'utf-8');
         console.log('SVG file successfully generated: badge.svg');
     } catch (err) {
         console.error('Error during execution:', err.message);
