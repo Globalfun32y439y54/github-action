@@ -3,8 +3,8 @@ name: 'badge-creator'
 description: 'This action allows you to make a badge that shows the translation progress of your Crowdin project'
 
 branding:
-  icon: 'refresh-cw'
-  color: 'green'
+  icon: 'bar-chart'
+  color: 'grey-dark'
 
 inputs:
   project_id:
