@@ -1,0 +1,19 @@
+name: 'badge-creator'
+
+description: 'This action allows you to make a badge that shows the translation progress of your Crowdin project'
+
+branding:
+  icon: 'refresh-cw'
+  color: 'green'
+
+inputs:
+  project_id:
+    description: 'The ID of the project'
+    required: True
+  token:
+    description: 'Personal access token required for authentication'
+    required: True
+
+runs:
+  using: 'node22'
+  main: 'index.js'
