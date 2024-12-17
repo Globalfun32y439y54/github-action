@@ -4,7 +4,7 @@ description: 'This action allows you to make a badge that shows the translation 
 
 branding:
   icon: 'bar-chart'
-  color: 'grey-dark'
+  color: 'gray-dark'
 
 inputs:
   project_id:
