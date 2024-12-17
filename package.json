@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "node-fetch": "^3.3.2"
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.2.10"
   }
 }
