@@ -1,9 +1,10 @@
-const core = require('@actions/core');
-const fs = require('fs');
+import core from '@actions/core';
+import fs from 'fs';
+import fetch from 'node-fetch';
 
 // Replace with your Crowdin API token and project ID
-const CROWDIN_API_TOKEN = core.getInput('token')
-const PROJECT_ID = core.getInput('project_id')
+const CROWDIN_API_TOKEN = core.getInput('token');
+const PROJECT_ID = core.getInput('project_id');
 
 // Base API URL for Crowdin
 const CROWDIN_API_URL = `https://api.crowdin.com/api/v2/projects/${PROJECT_ID}/languages/progress`;
@@ -31,8 +32,8 @@ async function fetchApprovedLanguageProgress() {
         const approvedLanguages = data.data.map((entry) => {
             const lang = entry.data;
 
-            // Check if the language name exists in the rename map
-            const renamedName = languageRenameMap[lang.language.name] || lang.language.name;
+            // Placeholder for renaming logic if needed
+            const renamedName = lang.language.name;
 
             return {
                 name: renamedName,
@@ -68,7 +69,6 @@ function generateSVG(data) {
     data.languages.forEach(lang => {
         const { name, progress, url } = lang;
 
-        // Determine bar width and color
         const barWidth = (progress / 100) * 150;
         const barColor = progress >= 90 ? '#2eccaa' : progress >= 50 ? '#38f' : '#f6664c';
 
@@ -89,17 +89,12 @@ function generateSVG(data) {
     return svgContent;
 }
 
-// Main function to fetch data, save JSON, and generate SVG
 async function main() {
     try {
-        // Step 1: Fetch approved progress data from Crowdin
         const progressData = await fetchApprovedLanguageProgress();
-
-        // Step 2: Save to output.json
         fs.writeFileSync('output.json', JSON.stringify(progressData, null, 2), 'utf-8');
         console.log('Approved language progress saved to output.json');
 
-        // Step 3: Generate and save SVG
         const svgOutput = generateSVG(progressData);
         fs.writeFileSync('language_progress.svg', svgOutput, 'utf-8');
         console.log('SVG file successfully generated: language_progress.svg');
