@@ -1,6 +1,6 @@
 {
   "name": "badge-creator",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "This action allows you to make a badge that shows the translation progress of your Crowdin project",
   "main": "index.js",
   "scripts": {

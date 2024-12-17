@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 // Replace with your Crowdin API token and project ID
 const CROWDIN_API_TOKEN = process.env.INPUT_TOKEN;
@@ -7,19 +8,22 @@ const PROJECT_ID = process.env.INPUT_PROJECT_ID;
 // Base API URL for Crowdin
 const CROWDIN_API_URL = `https://api.crowdin.com/api/v2/projects/${PROJECT_ID}/languages/progress`;
 
-// Define a mapping of language names to rename
-const languageRenameMap = {
-    "German": "German",
-    "Spanish": "Spanish",
-    "French": "French",
-    "Italian": "Italian",
-    "Japanese": "Japanese",
-    "Portuguese": "Portuguese",
-    "Russian": "Russian",
-    "Swedish": "Swedish",
-    "Chinese Simplified": "Chinese (Simplified, China)",
-    "Chinese Traditional": "Chinese (Simplified, Taiwan)",
-};
+// Get the output directory from an environment variable or use the default
+const OUTPUT_DIR = process.env.OUTPUT_DIR || './output';
+
+// Parse the languageRenameMap from the environment variable or use a default
+let languageRenameMap = {};
+try {
+    languageRenameMap = JSON.parse(process.env.LANGUAGE_RENAME_MAP || '{}');
+} catch (err) {
+    console.error('Error parsing LANGUAGE_RENAME_MAP. Ensure it is valid JSON:', err.message);
+    languageRenameMap = {};
+}
+
+// Ensure the output directory exists
+if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+}
 
 // Function to fetch approved progress from Crowdin
 async function fetchApprovedLanguageProgress() {
@@ -109,13 +113,15 @@ async function main() {
         const progressData = await fetchApprovedLanguageProgress();
 
         // Step 2: Save to output.json
-        fs.writeFileSync('output.json', JSON.stringify(progressData, null, 2), 'utf-8');
-        console.log('Approved language progress saved to output.json');
+        const jsonFilePath = path.join(OUTPUT_DIR, 'output.json');
+        fs.writeFileSync(jsonFilePath, JSON.stringify(progressData, null, 2), 'utf-8');
+        console.log(`Approved language progress saved to ${jsonFilePath}`);
 
         // Step 3: Generate and save SVG
+        const svgFilePath = path.join(OUTPUT_DIR, 'badge.svg');
         const svgOutput = generateSVG(progressData);
-        fs.writeFileSync('badge.svg', svgOutput, 'utf-8');
-        console.log('SVG file successfully generated: badge.svg');
+        fs.writeFileSync(svgFilePath, svgOutput, 'utf-8');
+        console.log(`SVG file successfully generated: ${svgFilePath}`);
     } catch (err) {
         console.error('Error during execution:', err.message);
     }

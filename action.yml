@@ -13,9 +13,15 @@ inputs:
   project_id:
     description: 'Crowdin Project ID'
     required: true
+  path:  
+    description: 'The Path You Want To Save The .svg File To'
+    required: false
+  languageremap:
+    description: 'This Is If You Changed The Laguages Letters'
+    required: false
 outputs:
   svg:
     description: 'Generated SVG file content'
 runs:
-  using: "node16"
+  using: "node20"
   main: "index.js"
