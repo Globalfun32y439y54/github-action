@@ -17,5 +17,5 @@ outputs:
   svg:
     description: 'Generated SVG file content'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "node16"
+  main: "index.js"
