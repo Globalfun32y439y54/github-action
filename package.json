@@ -3,13 +3,13 @@
   "version": "1.0.7",
   "description": "This action allows you to make a badge that shows the translation progress of your Crowdin project",
   "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "engines": {
+    "node": ">=20"
   },
+  "scripts": {
+  },
+  "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.11.1",
-    "@actions/github": "^6.0.0",
-    "node-fetch": "^3.3.2"
+    "@actions/core": "^1.11.1"
   }
 }

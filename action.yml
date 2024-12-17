@@ -1,6 +1,6 @@
 name: 'badge-creator'
-
 description: 'This action allows you to make a badge that shows the translation progress of your Crowdin project'
+author: 'GlobalFun'
 
 branding:
   icon: 'bar-chart'
@@ -30,5 +30,5 @@ outputs:
     description: 'Generated SVG file content'
 
 runs:
-  using: "node20"
-  main: "index.js"
+  using: node20
+  main: index.js
