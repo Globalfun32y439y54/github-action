@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 // Replace with your Crowdin API token and project ID
 const CROWDIN_API_TOKEN = process.env.INPUT_TOKEN;
 const PROJECT_ID = process.env.INPUT_PROJECT_ID;
