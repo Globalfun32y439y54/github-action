@@ -7,13 +7,15 @@ branding:
   color: 'gray-dark'
 
 inputs:
-  project_id:
-    description: 'The ID of the project'
-    required: True
   token:
-    description: 'Personal access token required for authentication'
-    required: True
-
+    description: 'Crowdin API Token'
+    required: true
+  project_id:
+    description: 'Crowdin Project ID'
+    required: true
+outputs:
+  svg:
+    description: 'Generated SVG file content'
 runs:
-  using: docker
+  using: 'docker'
   image: 'Dockerfile'
