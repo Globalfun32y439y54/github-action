@@ -1,8 +1,11 @@
 FROM node:20
 
-COPY index.js /index.js
-COPY package.json /package.json
+WORKDIR /app
 
-RUN npm i
+COPY package.json ./
 
-ENTRYPOINT node index.js
+RUN npm install
+
+COPY . .
+
+ENTRYPOINT ["node", "index.js"]
