@@ -1,3 +1,5 @@
+const { execSync } = require('child_process');
+execSync('npm install @actions/core', { stdio: 'inherit' });
 const core = require('@actions/core');
 const fs = require('fs');
 const path = require('path');
