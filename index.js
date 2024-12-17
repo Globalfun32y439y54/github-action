@@ -1,3 +1,7 @@
+const core = require('@actions/core');
+const fs = require('fs');
+const fetch = require('node-fetch');
+
 // Replace with your Crowdin API token and project ID
 const CROWDIN_API_TOKEN = core.getInput('token');
 const PROJECT_ID = core.getInput('project_id');
