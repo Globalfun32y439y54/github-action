@@ -1,22 +1,23 @@
+const core = require('@actions/core');
 const fs = require('fs');
 const path = require('path');
 
 // Replace with your Crowdin API token and project ID
-const CROWDIN_API_TOKEN = process.env.INPUT_TOKEN;
-const PROJECT_ID = process.env.INPUT_PROJECT_ID;
+const CROWDIN_API_TOKEN = core.getInput('token');
+const PROJECT_ID = core.getInput('project_id');
 
 // Base API URL for Crowdin
 const CROWDIN_API_URL = `https://api.crowdin.com/api/v2/projects/${PROJECT_ID}/languages/progress`;
 
 // Get the output directory from an environment variable or use the default
-const OUTPUT_DIR = process.env.OUTPUT_DIR || './';
+const OUTPUT_DIR = core.getInput('output_path') || './';
 
 // Parse the languageRenameMap from the environment variable or use a default
-let languageRenameMap = {};
+let languageRenameMap;
 try {
-    languageRenameMap = JSON.parse(process.env.LANGUAGE_RENAME_MAP || '{}');
+    languageRenameMap = JSON.parse(core.getInput('language_rename_map') || '{}');
 } catch (err) {
-    console.error('Error parsing LANGUAGE_RENAME_MAP. Ensure it is valid JSON:', err.message);
+    console.error('Error parsing language_rename_map input:', err.message);
     languageRenameMap = {};
 }
 

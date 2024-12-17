@@ -16,12 +16,19 @@ inputs:
   path:  
     description: 'The Path You Want To Save The .svg File To'
     required: false
-  languageremap:
-    description: 'This Is If You Changed The Laguages Letters'
+  language_rename_map:
+    description: 'JSON string to rename languages (e.g., '{"German": "Deutsch"}')'
     required: false
+    default: '{}'
+  output_path:
+    description: Directory to save the generated files
+    required: false
+    default: './'
+
 outputs:
   svg:
     description: 'Generated SVG file content'
+
 runs:
   using: "node20"
   main: "index.js"
