@@ -1,6 +1,3 @@
-const { execSync } = require('child_process');
-execSync('npm install @actions/core')
-
 const core = require('@actions/core');
 const fs = require('fs');
 
