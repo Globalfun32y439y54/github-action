@@ -24,13 +24,13 @@ A GitHub action to manage and synchronize localization resources with your Crowd
 
 </div> 
 
-## Usage
+# Usage
 
 Set up a workflow in *.github/workflows/crowdin.yml* (or add a job to your existing workflows).
 
 Read the [Configuring a workflow](https://help.github.com/en/articles/configuring-a-workflow) article for more details on creating and setting up GitHub workflows.
 
-### Sample workflow
+## Sample workflow
 
 ```yaml
 name: Badge Creator
@@ -63,7 +63,7 @@ jobs:
 
 Enter the `PROJECT_ID` and `TOKEN` secrets under the Repository settings -> Secrets and variables -> Actions > Repository secrets.
 
-## Supported options
+### Supported options
 
 | Option                     | Description                                                                                        | Example value                |
 |----------------------------|----------------------------------------------------------------------------------------------------|------------------------------|
@@ -71,3 +71,27 @@ Enter the `PROJECT_ID` and `TOKEN` secrets under the Repository settings -> Secr
 | `project_id`               | You Crowdin Project ID so it can get the right translations                                        | `${{ secrets.PROJECT_ID }}`  |
 | `output_path`              | The path your .svg file is saved to                                                                | `./icon`                     |
 | `language_rename_map`      | So you rename the name of the translations in the .svg file                                        | `{"German":"Deutsch","Spanish":"Español"}`            |
+| `toggledefault`            | This allow you set add your default language into the .svg file                                    | `false` (default)            |
+| `defaultlanguage`          | This is the feild you add the progress and name of the default language                            | [Click Me](#defaultlanguage) |
+
+
+
+
+### Default Language Example
+```json
+  {
+    "name": "English",
+    "progress": 100,
+    "url": "https://crowdin.com/project/bettercanvas",
+    "color": "#2eccaa"
+  }
+```
+
+### Supported options for default language
+
+| Option                     | Description                                                                                        | Example value                |
+|----------------------------|----------------------------------------------------------------------------------------------------|------------------------------|
+| `name`                     | The name of the default language                                                                   | `English`                    |
+| `progress`                 | The total progress of the language (Dont add a % sign. It adds it for you)                         | `100`                        |
+| `url`                      | The url to the language strings                                                                    | `https://crowdin.com/project/bettercanvas`                |
+| `color`                    | This depends of the progress of your language (progress > 90 #2eccaa, progress > 50 #38f, progress > 0 #f6664c) | `English`                    |

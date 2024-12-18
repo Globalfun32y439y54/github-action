@@ -1,6 +1,6 @@
 name: 'badge-creator'
 description: 'This action allows you to make a badge that shows the translation progress of your Crowdin project'
-author: 'GlobalFun'
+author: 'Globalfun32y439y54'
 
 branding:
   icon: 'bar-chart'
@@ -21,9 +21,18 @@ inputs:
     required: false
     default: '{}'
   output_path:
-    description: Directory to save the generated files
+    description: 'Directory to save the generated files'
     required: false
     default: './'
+  toggledefault:
+    description: 'This allows you so show your default language'
+    required: false
+    default: 'false'
+  defaultlanguage:
+    description: 'JSON string to default language (e.g., { "name": "English", "progress": 100, "url": "https://crowdin.com/project/bettercanvas" }'
+    required: false
+    default: '{}'
+
 
 outputs:
   svg:

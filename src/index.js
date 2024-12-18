@@ -81,7 +81,30 @@ function generateSVG(data) {
 <g id="layer1">
 `;
 
-    let yPosition = 20; // Starting Y-coordinate
+    let yPosition = 20;
+
+    if (core.getInput('toggledefalt') === true) {
+
+        let defaltlanguage;
+        try {
+            defaltlanguage = JSON.parse(core.getInput('defaltlanguage') || '{}');
+        } catch (err) {
+            console.error('Error parsing defaltlanguage input:', err.message);
+            defaltlanguage = {};
+        }
+
+        const { name, progress, url } = defaltlanguage
+
+        svgContent += `
+<a xlink:href="${url}" xlink:title="${name}">
+<text xml:space="preserve" x="238" y="${yPosition}" style="font-style:normal;font-weight:normal;font-size:11px;font-family:'Source Sans 3',sans-serif;fill:#808080;text-anchor:end;">${name}</text>
+<text xml:space="preserve" x="408" y="${yPosition}" style="font-style:normal;font-weight:normal;font-size:11px;font-family:'Source Sans 3',sans-serif;fill:#808080">${progress}%</text>
+<rect x="248" y="${yPosition - 6}" width="150" height="6" rx="2" style="fill:#2eccaa;fill-opacity:1;stroke:none"></rect>
+</a>
+`;
+    
+        yPosition += 15;
+    }
 
     data.languages.forEach(lang => {
         const { name, progress, url } = lang;
