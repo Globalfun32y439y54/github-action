@@ -1,7 +1,7 @@
 # Badge Creator Usage Examples
 
 - [Basic Config](#basic-config)
-- [Translations export options configuration](#translations-export-options-configuration)
+- [Change The Names Of The Saved Names](#translations-export-options-configuration)
 - [Triggers](#triggers)
   - [Cron schedule](#cron-schedule)
   - [Manually](#manually)
@@ -12,39 +12,32 @@
 ### Basic Config
 
 ```yaml
-name: Crowdin Action
+name: Badge Creator
 
 on:
   push:
     branches: [ main ]
 
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
-  crowdin:
+  badge:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
 
-      - name: Synchronize with Crowdin
-        uses: crowdin/github-action@v2
+      - name: badge-creator
+        uses: Globalfun32y439y54/github-action@V1.0.10
         with:
-          upload_sources: true
-          upload_translations: true
-          download_translations: true
-          localization_branch_name: l10n_crowdin_translations
+            token: ${{ secrets.TOKEN }}
+            project_id: ${{ secrets.PROJECT_ID }}
 
-          create_pull_request: true
-          pull_request_title: 'New Crowdin translations'
-          pull_request_body: 'New Crowdin pull request with translations'
-          pull_request_base_branch_name: 'main'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
-          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+      - name: Commit and Push Outputs
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add **/badge.svg
+          git commit -m "Updaed Your Badge" || echo "No changes to commit"
+          git push
 ```
 
 ### Translations export options configuration

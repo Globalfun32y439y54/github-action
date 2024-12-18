@@ -17,7 +17,7 @@ A GitHub action to manage and synchronize localization resources with your Crowd
 [**`Wiki`**]()
 
 [![test](https://github.com/Globalfun32y439y54/github-action/actions/workflows/test-action.yml/badge.svg)](https://github.com/Globalfun32y439y54/github-action/actions/workflows/test-action.yml)
-[![GitHub Used by](https://img.shields.io/static/v1?label=Used%20by&message=1&color=brightgreen&logo=github&cacheSeconds=10000)](https://github.com/crowdin/github-action/network/dependents?package_id=UGFja2FnZS0yOTQyNTU3MzA0)
+[![GitHub Used by](https://img.shields.io/static/v1?label=Used%20by&message=1&color=brightgreen&logo=github&cacheSeconds=10000)](https://github.com/Globalfun32y439y54/github-action/network/dependents)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Globalfun32y439y54/github-action?logo=github&cacheSeconds=5000)](https://github.com/Globalfun32y439y54/github-action/releases/latest)
 [![GitHub contributors](https://img.shields.io/github/contributors/Globalfun32y439y54/github-action?cacheSeconds=5000)](https://github.com/Globalfun32y439y54/github-action/graphs/contributors)
 [![GitHub](https://img.shields.io/github/license/Globalfun32y439y54/github-action?cacheSeconds=50000)](https://github.com/Globalfun32y439y54/github-action/blob/master/LICENSE)
@@ -79,15 +79,10 @@ Enter the `PROJECT_ID` and `TOKEN` secrets under the Repository settings -> Secr
 
 ### Default Language Example
 ```json
-  {
-    "name": "English",
-    "progress": 100,
-    "url": "https://crowdin.com/project/bettercanvas",
-    "color": "#2eccaa"
-  }
+  { "name": "English", "progress": 100, "url": "https://crowdin.com/project/bettercanvas", "color": "#2eccaa" }
 ```
 
-### Supported options for default language
+#### Supported options for default language
 
 | Option                     | Description                                                                                        | Example value                |
 |----------------------------|----------------------------------------------------------------------------------------------------|------------------------------|
