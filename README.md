@@ -14,7 +14,6 @@ A GitHub action to manage and synchronize localization resources with your Crowd
 <div align="center">
 
 [**`Examples`**](/EXAMPLES.md) |
-[**`Configuration File`**]() |
 [**`Wiki`**]()
 
 [![test](https://github.com/Globalfun32y439y54/github-action/actions/workflows/test-action.yml/badge.svg)](https://github.com/Globalfun32y439y54/github-action/actions/workflows/test-action.yml)
@@ -24,6 +23,45 @@ A GitHub action to manage and synchronize localization resources with your Crowd
 [![GitHub](https://img.shields.io/github/license/Globalfun32y439y54/github-action?cacheSeconds=50000)](https://github.com/Globalfun32y439y54/github-action/blob/master/LICENSE)
 
 </div> 
+
+## Usage
+
+Set up a workflow in *.github/workflows/crowdin.yml* (or add a job to your existing workflows).
+
+Read the [Configuring a workflow](https://help.github.com/en/articles/configuring-a-workflow) article for more details on creating and setting up GitHub workflows.
+
+### Sample workflow
+
+```yaml
+name: Badge Creator
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  badge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: badge-creator
+        uses: Globalfun32y439y54/github-action@V1.0.10
+        with:
+            token: ${{ secrets.TOKEN }}
+            project_id: ${{ secrets.PROJECT_ID }}
+
+      - name: Commit and Push Outputs
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add **/badge.svg
+          git commit -m "Updaed Your Badge" || echo "No changes to commit"
+          git push
+```
+
+Enter the `PROJECT_ID` and `TOKEN` secrets under the Repository settings -> Secrets and variables -> Actions > Repository secrets.
 
 ## Supported options
 
