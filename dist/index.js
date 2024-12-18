@@ -27624,7 +27624,7 @@ function generateSVG(data) {
 
     let yPosition = 20;
 
-    if (core.getInput('toggledefault') === true) {
+    if (core.getInput('toggledefault') === 'true') {
 
         let defaultlanguage;
         try {
