@@ -1,0 +1,21 @@
+name: 'test'
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - name: badge-creator
+        uses: Globalfun32y439y54/github-action@V1.0.9
+        with:
+            token: ${{ secrets.TOKEN }}
+            project_id: ${{ secrets.PROJECT_ID }}
+            output_path: ./icon
