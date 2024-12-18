@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Globalfun32y439y54/github-action/refs/heads/main/icon/logo-White.png">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Globalfun32y439y54/github-action/refs/heads/main/icon/logo-Dark.png">
-    <img width="300" height="121" src="https://raw.githubusercontent.com/Globalfun32y439y54/github-action/refs/heads/main/icon/logo-Dark.png">
+    <img width="325" height="131" src="https://raw.githubusercontent.com/Globalfun32y439y54/github-action/refs/heads/main/icon/logo-Dark.png">
   </picture>
 </p>
 
