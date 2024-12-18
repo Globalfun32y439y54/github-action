@@ -6,6 +6,11 @@
   </picture>
 </p>
 
+# GitHub Badge Creator
+<div align="center">
+A GitHub action to manage and synchronize localization resources with your Crowdin project
+</div>
+
 <div align="center">
 
 [**`Examples`**](/EXAMPLES.md) |
@@ -19,3 +24,12 @@
 [![GitHub](https://img.shields.io/github/license/Globalfun32y439y54/github-action?cacheSeconds=50000)](https://github.com/Globalfun32y439y54/github-action/blob/master/LICENSE)
 
 </div> 
+
+## Supported options
+
+| Option                     | Description                                                                                        | Example value                |
+|----------------------------|----------------------------------------------------------------------------------------------------|------------------------------|
+| `token`                    | Your Crowdin API token so it can get your translations                                             | `${{ secrets.TOKEN }}`       |
+| `project_id`               | You Crowdin Project ID so it can get the right translations                                        | `${{ secrets.PROJECT_ID }}`  |
+| `output_path`              | The path your .svg file is saved to                                                                | `./icon`                     |
+| `language_rename_map`      | So you rename the name of the translations in the .svg file                                        | `{"German":"Deutsch","Spanish":"Español"}`            |
