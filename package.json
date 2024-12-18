@@ -1,6 +1,6 @@
 {
   "name": "badge-creator",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "description": "This action allows you to make a badge that shows the translation progress of your Crowdin project",
   "main": "index.js",
   "engines": {
@@ -12,6 +12,6 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@vercel/ncc": "^0.38.3"
+    "npm i -g @vercel/ncc": "^0.38.3"
   }
 }
