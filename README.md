@@ -1,3 +1,11 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/Globalfun32y439y54/github-action/icon/logo-White.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/Globalfun32y439y54/github-action/icon/logo-Dark.png">
+    <img width="150" height="150" src="https://github.com/Globalfun32y439y54/github-action/icon/logo-Dark.png">
+  </picture>
+</p>
+
 <div align="center">
 
 [**`Examples`**](/EXAMPLES.md) |
