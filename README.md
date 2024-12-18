@@ -94,4 +94,4 @@ Enter the `PROJECT_ID` and `TOKEN` secrets under the Repository settings -> Secr
 | `name`                     | The name of the default language                                                                   | `English`                    |
 | `progress`                 | The total progress of the language (Dont add a % sign. It adds it for you)                         | `100`                        |
 | `url`                      | The url to the language strings                                                                    | `https://crowdin.com/project/bettercanvas`                |
-| `color`                    | This depends of the progress of your language ( progress > 90 #2eccaa, <br/>progress > 50 #38f, <br/>progress > 0 #f6664c ) | `English`                    |
+| `color`                    | This depends of the progress of your language <br/>( Progress > 90, color = #2eccaa, <br/>Progress > 50, color = #38f, <br/>Progress > 0, color = #f6664c ) | `#2eccaa`                    |
