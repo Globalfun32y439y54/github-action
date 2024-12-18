@@ -83,23 +83,23 @@ function generateSVG(data) {
 
     let yPosition = 20;
 
-    if (core.getInput('toggledefalt') === true) {
+    if (core.getInput('toggledefault') === true) {
 
-        let defaltlanguage;
+        let defaultlanguage;
         try {
-            defaltlanguage = JSON.parse(core.getInput('defaltlanguage') || '{}');
+            defaultlanguage = JSON.parse(core.getInput('defaultlanguage') || '{}');
         } catch (err) {
-            console.error('Error parsing defaltlanguage input:', err.message);
-            defaltlanguage = {};
+            console.error('Error parsing defaultlanguage input:', err.message);
+            defaultlanguage = {};
         }
 
-        const { name, progress, url } = defaltlanguage
+        const { name, progress, url, color } = defaultlanguage
 
         svgContent += `
 <a xlink:href="${url}" xlink:title="${name}">
 <text xml:space="preserve" x="238" y="${yPosition}" style="font-style:normal;font-weight:normal;font-size:11px;font-family:'Source Sans 3',sans-serif;fill:#808080;text-anchor:end;">${name}</text>
 <text xml:space="preserve" x="408" y="${yPosition}" style="font-style:normal;font-weight:normal;font-size:11px;font-family:'Source Sans 3',sans-serif;fill:#808080">${progress}%</text>
-<rect x="248" y="${yPosition - 6}" width="150" height="6" rx="2" style="fill:#2eccaa;fill-opacity:1;stroke:none"></rect>
+<rect x="248" y="${yPosition - 6}" width="150" height="6" rx="2" style="fill:${color};fill-opacity:1;stroke:none"></rect>
 </a>
 `;
     

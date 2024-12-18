@@ -72,7 +72,7 @@ Enter the `PROJECT_ID` and `TOKEN` secrets under the Repository settings -> Secr
 | `output_path`              | The path your .svg file is saved to                                                                | `./icon`                     |
 | `language_rename_map`      | So you rename the name of the translations in the .svg file                                        | `{"German":"Deutsch","Spanish":"Español"}`            |
 | `toggledefault`            | This allow you set add your default language into the .svg file                                    | `false` (default)            |
-| `defaultlanguage`          | This is the feild you add the progress and name of the default language                            | [Click Me](#defaultlanguage) |
+| `defaultlanguage`          | This is the feild you add the progress and name of the default language                            | Scroll Down To Default Language Example |
 
 
 
