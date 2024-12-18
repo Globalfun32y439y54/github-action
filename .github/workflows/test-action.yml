@@ -19,3 +19,6 @@ jobs:
             token: ${{ secrets.TOKEN }}
             project_id: ${{ secrets.PROJECT_ID }}
             output_path: ./icon
+            language_rename_map: '{ "German": "German", "Spanish": "Spanish", "French": "French", "Italian": "Italian", "Japanese": "Japanese", "Portuguese": "Portuguese", "Russian": "Russian", "Swedish": "Swedish", "Chinese Simplified": "Chinese (Simplified, China)", "Chinese Traditional": "Chinese (Simplified, Taiwan)", }'
+            toggledefault: true
+            defaultlanguage: '{ "name": "English", "progress": 100, "url": "https://crowdin.com/project/bettercanvas", "color": "#2eccaa" }'
