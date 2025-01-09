@@ -47,7 +47,7 @@ jobs:
         uses: actions/checkout@v4.2.2
 
       - name: badge-creator
-        uses: Globalfun32y439y54/github-action@V1.0.10
+        uses: Globalfun32y439y54/github-action@V1.0.11
         with:
             token: ${{ secrets.TOKEN }}
             project_id: ${{ secrets.PROJECT_ID }}
