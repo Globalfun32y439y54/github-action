@@ -8,7 +8,7 @@
 
 # GitHub Badge Creator
 <div align="center">
-A GitHub action to manage and synchronize localization resources with your Crowdin project
+A GitHub action to manage and synchronize your localization resources from your Crowdin project to an image
 </div>
 
 <div align="center">
