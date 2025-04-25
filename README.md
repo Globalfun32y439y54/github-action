@@ -57,7 +57,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add **/badge.svg
-          git commit -m "Updaed Your Badge" || echo "No changes to commit"
+          git commit -m "Updated Your Badge" || echo "No changes to commit"
           git push
 ```
 
@@ -89,4 +89,4 @@ Enter the `PROJECT_ID` and `TOKEN` secrets under the Repository settings -> Secr
 | `name`                     | The name of the default language                                                                   | `English`                    |
 | `progress`                 | The total progress of the language (Dont add a % sign. It adds it for you)                         | `100`                        |
 | `url`                      | The url to the language strings                                                                    | `https://crowdin.com/project/bettercanvas`                |
-| `color`                    | This depends of the progress of your language: <br/>Progress > 90, color = #2eccaa, <br/>Progress > 50, color = #38f, <br/>Progress > 0, color = #f6664c | `#2eccaa`                    |
+| `color`                    | This depends of the progress of your language: <br/>Progress > 90%, color = #2eccaa, <br/>Progress > 50%, color = #38f, <br/>Progress > 0%, color = #f6664c | `#2eccaa`                    |
